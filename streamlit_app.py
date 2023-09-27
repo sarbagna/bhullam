@@ -3,6 +3,14 @@ from langchain.llms import OpenAI
 
 st.title('🦜🔗 Quickstart App')
 
+animal_shelter = ['cat', 'dog', 'rabbit', 'bird']
+
+animal = st.text_input('Type an animal')
+
+if st.button('Check availability'):
+    have_it = animal.lower() in animal_shelter
+    'We have that animal!' if have_it else 'We don\'t have that animal.'
+
 openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
 
 def generate_response(input_text):
